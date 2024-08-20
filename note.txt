@@ -1,0 +1,22 @@
+// Cách buil project ts (thành js) lên vercel (qua github)
+B1: tạo file vercel.json
+// Câu lệnh tsc: tìm tất cả file ts biên dịch thành file js
+B2: thêm câu lệnh: "build": "tsc" vào scripts của file package.json
+=> npm run buil <=> npm tsc
+Note: Code server side rendering nên có file khác => câu lệnh trên không biên dịch
+    C1: Copy paste qua thư mục dist
+    C2: Tạo thư mục copy-dir.js trong project giống file index.js
+        [npm install --save-dev fs-extra]
+        update: "buil": "tsc && node copy-dir.js"
+B3: Cài thư viện pre-commit (Để không cần chạy câu lệnh npm run build)  
+    Thêm "pre-commit": [
+        "ts.check", 
+        "build",
+        "add-build"
+    ] // khi gõ git commit thì nó sễ chạy vào pre-commit trước
+     vào file package.json
+    và 
+        "ts.check": "tsc --project tsconfig.json",
+        "add-build": "git add dist"
+
+
