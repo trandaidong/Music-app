@@ -7,7 +7,7 @@ const listFolderCopy=[
     },
     {
         sourceDirectory: "public",
-        targetDirectory: "dist/views"
+        targetDirectory: "dist/public"
     }
 ]
 listFolderCopy.forEach(item=>{
